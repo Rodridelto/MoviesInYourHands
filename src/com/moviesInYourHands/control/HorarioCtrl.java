@@ -51,6 +51,20 @@ Conexion conexion;
 		return horarios;
 
 	}
+
+	public String getNombre(int codigo) throws Throwable
+	{
+		ResultSet rs;
+        String nombre = "";
+		conexion.SQL("Select * from horario where codigo=?");
+		conexion.preparedStatement().setInt(1, codigo);
+		rs = conexion.resultSet();
+		while (rs.next()){
+			nombre = rs.getString("horaInicio") + " - "+rs.getString("horaFin") ;
+		}
+		return nombre;
+				
+	}
 	
 	/*public void search(Pelicula pelicula) throws Throwable {
 

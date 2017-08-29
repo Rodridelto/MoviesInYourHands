@@ -12,6 +12,12 @@ public class Promocion
 		this.descuento = descuento;
 		this.descripcion = descripcion;
 	}
+	
+	public Promocion(double descuento, String descripcion) {
+		this.descuento = descuento;
+		this.descripcion = descripcion;
+	}
+
 	public int getCodigo() {
 		return codigo;
 	}

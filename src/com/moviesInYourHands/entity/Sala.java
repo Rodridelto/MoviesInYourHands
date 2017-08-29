@@ -13,6 +13,16 @@ public class Sala
 		this.numeroSala = numeroSala;
 		this.cantidadButacas = cantidadButacas;
 	}
+	
+	
+	public Sala(int codigoCine, int numeroSala, int cantidadButacas) {
+		
+		this.codigoCine = codigoCine;
+		this.numeroSala = numeroSala;
+		this.cantidadButacas = cantidadButacas;
+	}
+
+
 	public int getCodigo() {
 		return codigo;
 	}

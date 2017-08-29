@@ -13,6 +13,17 @@ public class Cine
 		this.direccion = direccion;
 		this.telefono = telefono;
 	}
+	
+	
+
+	public Cine(String nombre, String direccion, int telefono) {
+		
+		this.nombre = nombre;
+		this.direccion = direccion;
+		this.telefono = telefono;
+	}
+
+
 
 	public int getCodigo() {
 		return codigo;

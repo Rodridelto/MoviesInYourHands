@@ -8,12 +8,16 @@ public class Funcion
 	private int codigoTemporada;
 	private int codigoCine;
 	private int codigoPelicula;
-	private int codigoDetalleVenta;
 	private String nombreFuncion;
+	private String promocion;
+	private String horario;
+	private String temporada;
+	private String cine;
+	private String pelicula;
 	
 	
 	public Funcion(int codigo, int codigoPromocion, int codigoHorario, int codigoTemporada, int codigoCine,
-			int codigoPelicula, int codigoDetalleVenta, String nombreFuncion) 
+			int codigoPelicula, String nombreFuncion) 
 	{
 		this.codigo = codigo;
 		this.codigoPromocion = codigoPromocion;
@@ -21,7 +25,6 @@ public class Funcion
 		this.codigoTemporada = codigoTemporada;
 		this.codigoCine = codigoCine;
 		this.codigoPelicula = codigoPelicula;
-		this.codigoDetalleVenta = codigoDetalleVenta;
 		this.nombreFuncion = nombreFuncion;
 	}
 	public int getCodigo() {
@@ -60,12 +63,7 @@ public class Funcion
 	public void setCodigoPelicula(int codigoPelicula) {
 		this.codigoPelicula = codigoPelicula;
 	}
-	public int getCodigoDetalleVenta() {
-		return codigoDetalleVenta;
-	}
-	public void setCodigoDetalleVenta(int codigoDetalleVenta) {
-		this.codigoDetalleVenta = codigoDetalleVenta;
-	}
+	
 	public String getNombreFuncion() {
 		return nombreFuncion;
 	}
@@ -73,11 +71,41 @@ public class Funcion
 		this.nombreFuncion = nombreFuncion;
 	}
 	
+	public String getHorario() {
+		return horario;
+	}
+	public void setHorario(String horario) {
+		this.horario = horario;
+	}
+	public String getTemporada() {
+		return temporada;
+	}
+	public void setTemporada(String temporada) {
+		this.temporada = temporada;
+	}
+	public String getCine() {
+		return cine;
+	}
+	public void setCine(String cine) {
+		this.cine = cine;
+	}
+	public String getPelicula() {
+		return pelicula;
+	}
+	public void setPelicula(String pelicula) {
+		this.pelicula = pelicula;
+	}
+	public String getPromocion() {
+		return promocion;
+	}
+	public void setPromocion(String promocion) {
+		this.promocion = promocion;
+	}
 	@Override
 
 	public String toString()
 	{
-		return " Funcion = [codigo= " + codigo +", codigo promocion= "+ codigoPromocion + ", codigo horario= "+ codigoHorario + ", codigo temporada= "+ codigoTemporada +  ", codigo cine= "+ codigoCine +  ", codigo pelicula= "+ codigoPelicula +  ", codigo de detalle venta= "+ codigoDetalleVenta + ", nombre funcion= "+ nombreFuncion +  "]";
+		return " Funcion = [codigo= " + codigo +", codigo promocion= "+ codigoPromocion + " promocion:"+promocion+ ", codigo horario= "+codigoHorario+" horario:"+ horario + " codigo temporada= "+ codigoTemporada + " temporada:"+ temporada +  ", codigo cine= "+codigoCine +" cine:"+ cine +  " codigo pelicula= " +codigoPelicula+ " pelicula: "+ pelicula + ", nombre funcion= "+ nombreFuncion +  "]";
 	}
 	
 }

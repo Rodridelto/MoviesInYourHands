@@ -13,6 +13,14 @@ public class Horario
 		this.horarioInicio = horarioInicio;
 		this.horarioFin = horarioFin;
 	}
+	
+	
+	public Horario(Time horarioInicio, Time horarioFin) {
+		this.horarioInicio = horarioInicio;
+		this.horarioFin = horarioFin;
+	}
+
+
 	public int getCodigo() {
 		return codigo;
 	}

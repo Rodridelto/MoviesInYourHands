@@ -101,7 +101,20 @@ public class PeliculaCtrl
 			conexion.CUD();
 		}
 	}
-
+	public String getNombre(int codigo) throws Throwable
+	{
+		ResultSet rs;
+        String nombre = "";
+		conexion.SQL("Select * from pelicula where codigo=?");
+		conexion.preparedStatement().setInt(1, codigo);
+		rs = conexion.resultSet();
+		while (rs.next()){
+			nombre = rs.getString("titulo");
+			//System.out.println(nombre + "nombre");
+		}
+		return nombre;
+				
+	}
 	
 
 }

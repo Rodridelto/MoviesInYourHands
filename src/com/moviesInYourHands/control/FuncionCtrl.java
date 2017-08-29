@@ -18,20 +18,19 @@ Conexion conexion;
 	public void Insertar(Funcion funcion) throws Throwable 
 	{
 		
-		conexion.SQL("Insert into pelicula( codigoPromocion,codigoHorario, codigoTemporada,codigoCine,codigoPelicula,codigoDetalleVenta,nombreFuncion) VALUES(?,?,?,?,?,?,?)");
+		conexion.SQL("Insert into pelicula( codigoPromocion,codigoHorario, codigoTemporada,codigoCine,codigoPelicula,nombreFuncion) VALUES(?,?,?,?,?,?)");
 		conexion.preparedStatement().setInt(1, funcion.getCodigoPromocion());
 		conexion.preparedStatement().setInt(2, funcion.getCodigoHorario());
 		conexion.preparedStatement().setInt(3, funcion.getCodigoTemporada());
 		conexion.preparedStatement().setInt(4, funcion.getCodigoCine());
 		conexion.preparedStatement().setInt(5, funcion.getCodigoPelicula());
-		conexion.preparedStatement().setInt(6, funcion.getCodigoDetalleVenta());
-		conexion.preparedStatement().setString(7, funcion.getNombreFuncion());
+		conexion.preparedStatement().setString(6, funcion.getNombreFuncion());
 		conexion.CUD();
 		
 	}
 	
 	public ArrayList<Funcion> list() throws Throwable {
-		ArrayList<Funcion> funcion = new ArrayList<Funcion>();
+		ArrayList<Funcion> funciones = new ArrayList<Funcion>();
 		ResultSet rs;
 		
 		 int codigo;
@@ -40,7 +39,10 @@ Conexion conexion;
 		 int codigoTemporada;
 		 int codigoCine;
 		 int codigoPelicula;
-		 int codigoDetalleVenta;
+		 String cine;
+		 String pelicula;
+		 String horario;
+		 String temporada;
 		 String nombreFuncion;
 		
 
@@ -50,20 +52,27 @@ Conexion conexion;
 
 		while (rs.next()) {
 			codigo= rs.getInt("codigo");
-			codigoPromocion=rs.getInt("codigoPromocion");
+			//codigoPromocion=rs.getInt("codigoPromocion");
 			codigoHorario=rs.getInt("codigoHorario");
 			codigoTemporada=rs.getInt("codigoTemporada");
 			codigoCine=rs.getInt("codigoCine");
 			codigoPelicula=rs.getInt("codigoPelicula");
-			codigoDetalleVenta=rs.getInt("codigoDetalleVenta");
-			nombreFuncion=rs.getNString("nombreFuncion");
+			nombreFuncion=rs.getString("nombreFuncion");
 			
 			
-			
-			funcion.add(new Funcion(codigo,codigoPromocion,codigoHorario, codigoTemporada,codigoCine,codigoPelicula,codigoDetalleVenta,nombreFuncion));
+		    cine = new CineCtrl(conexion).getNombre(codigoCine);
+		    pelicula = new PeliculaCtrl(conexion).getNombre(codigoPelicula);
+			horario = new HorarioCtrl(conexion).getNombre(codigoHorario);
+		    temporada = new TemporadaCtrl(conexion).getDatosTemporada(codigoTemporada);
+			Funcion funcion = new Funcion(codigo,0,codigoHorario, codigoTemporada,codigoCine,codigoPelicula,nombreFuncion);
+			funcion.setCine(cine);
+			funcion.setPelicula(pelicula);
+			funcion.setHorario(horario);
+			funcion.setTemporada(temporada);
+			funciones.add(funcion);
 		}
-
-		return funcion;
+		
+		return funciones;
 
 	}
 	
@@ -82,13 +91,12 @@ Conexion conexion;
 			funcion.setCodigoTemporada(rs.getInt("codigoTemporada"));
 			funcion.setCodigoCine(rs.getInt("codigoCine"));
 			funcion.setCodigoPelicula(rs.getInt("codigoPelicula"));
-			funcion.setCodigoDetalleVenta(rs.getInt("codigoDetalleVenta"));
 			funcion.setNombreFuncion(rs.getString("nombreFuncion"));
 				
 		}
 
 		rs.close();
-
+		funcion.setCine(new CineCtrl(conexion).getNombre(funcion.getCodigoCine()));
 	}
 	
 	public void update(Funcion funcion) throws Throwable {

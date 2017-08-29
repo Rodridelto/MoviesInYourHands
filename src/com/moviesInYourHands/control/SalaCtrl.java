@@ -10,7 +10,7 @@ public class SalaCtrl
 	
 Conexion conexion;
 	
-	public SalaCtrl (Sala sala) 
+	public SalaCtrl (Conexion conexion) 
 	{
 		this.conexion = conexion;
 	}

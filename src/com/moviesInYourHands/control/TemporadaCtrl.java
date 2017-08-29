@@ -50,6 +50,20 @@ Conexion conexion;
 
 	}
 	
+	public String getDatosTemporada(int codigo) throws Throwable
+	{
+		ResultSet rs;
+        String datos = "";
+		conexion.SQL("Select * from temporada where codigo=?");
+		conexion.preparedStatement().setInt(1, codigo);
+		rs = conexion.resultSet();
+		while (rs.next()){
+			datos = rs.getDate("fechaInicio").toGMTString() + " - " + rs.getDate("fechaFin").toGMTString();
+		}
+		return datos;
+				
+	}
+	
 	/*public void search(Pelicula pelicula) throws Throwable {
 
 		ResultSet rs;

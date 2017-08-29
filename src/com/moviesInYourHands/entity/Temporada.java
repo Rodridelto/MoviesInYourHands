@@ -14,6 +14,15 @@ public class Temporada
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 	}
+	
+	
+	public Temporada(Date fechaInicio, Date fechaFin) {
+		
+		this.fechaInicio = fechaInicio;
+		this.fechaFin = fechaFin;
+	}
+
+
 	public int getCodigo() {
 		return codigo;
 	}

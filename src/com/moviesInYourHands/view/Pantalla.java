@@ -15,6 +15,8 @@ public class Pantalla {
 		PeliculaView peliculaView = new PeliculaView(conexion,scanner);
 		//peliculaView.insertar();
 		peliculaView.listar();
+		FuncionView funcionView = new FuncionView(conexion,scanner);
+		//funcionView.listar();
 		
 		try 
 		{

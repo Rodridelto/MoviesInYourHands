@@ -20,6 +20,7 @@ public class FuncionView
 		funcionCtrl = new FuncionCtrl(conexion);
 		
 	}
+	
 	/*public void insertar() 
 	{
 		int codigoPromocion;
@@ -95,5 +96,14 @@ public class FuncionView
 			System.out.println(e.getMessage());
 		}
 	}*/
+	public double getPrecio(int codigofuncion) {
+		try {
+			return funcionCtrl.getPrecio(codigofuncion);
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+	}
 
 }

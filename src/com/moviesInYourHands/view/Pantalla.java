@@ -3,6 +3,7 @@ package com.moviesInYourHands.view;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import com.moviesInYourHands.Menu.MenusFuncion;
 import com.moviesInYourHands.control.Conexion;
 import com.moviesInYourHands.view.PeliculaView;
 
@@ -12,10 +13,25 @@ public class Pantalla {
 	{
 		Scanner scanner = new Scanner(System.in);
 		Conexion conexion = new Conexion();	
-		PeliculaView peliculaView = new PeliculaView(conexion,scanner);
+		int codigofuncion = MenusFuncion.menu(scanner);
+		int cantidadEntradas= MenusFuncion.menuEntradas(scanner);
+		System.out.println("el codigo ingresado es: " +codigofuncion);
+		System.out.println("la cantidad ingresada es: " +cantidadEntradas);
+		VentaView ventaView = new VentaView(conexion,scanner);
+		ventaView.insertar();
+		DetalleVentaView detalleVentaView= new DetalleVentaView(conexion,scanner);
+		FuncionView  funcionView = new FuncionView(conexion, scanner);
+		double total = cantidadEntradas *  funcionView.getPrecio(codigofuncion);
+		
+		
+		detalleVentaView.insertar(cantidadEntradas, codigofuncion, total);
+		
+		detalleVentaView.listar();
+		
+		//PeliculaView peliculaView = new PeliculaView(conexion,scanner);
 		//peliculaView.insertar();
-		peliculaView.listar();
-		FuncionView funcionView = new FuncionView(conexion,scanner);
+		//peliculaView.listar();
+		//FuncionView funcionView = new FuncionView(conexion,scanner);
 		//funcionView.listar();
 		
 		try 

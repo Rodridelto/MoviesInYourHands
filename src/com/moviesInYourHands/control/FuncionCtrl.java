@@ -39,6 +39,7 @@ Conexion conexion;
 		 int codigoTemporada;
 		 int codigoCine;
 		 int codigoPelicula;
+		 double precioUnidad;
 		 String cine;
 		 String pelicula;
 		 String horario;
@@ -58,13 +59,14 @@ Conexion conexion;
 			codigoCine=rs.getInt("codigoCine");
 			codigoPelicula=rs.getInt("codigoPelicula");
 			nombreFuncion=rs.getString("nombreFuncion");
+			precioUnidad = rs.getDouble("precioUnidad");
 			
 			
 		    cine = new CineCtrl(conexion).getNombre(codigoCine);
 		    pelicula = new PeliculaCtrl(conexion).getNombre(codigoPelicula);
 			horario = new HorarioCtrl(conexion).getNombre(codigoHorario);
 		    temporada = new TemporadaCtrl(conexion).getDatosTemporada(codigoTemporada);
-			Funcion funcion = new Funcion(codigo,0,codigoHorario, codigoTemporada,codigoCine,codigoPelicula,nombreFuncion);
+			Funcion funcion = new Funcion(codigo,0,codigoHorario, codigoTemporada,codigoCine,codigoPelicula,nombreFuncion, precioUnidad);
 			funcion.setCine(cine);
 			funcion.setPelicula(pelicula);
 			funcion.setHorario(horario);
@@ -114,6 +116,18 @@ Conexion conexion;
 			conexion.CUD();
 		}
 	}
-
+	public double getPrecio(int codigo) throws Throwable
+	{
+		ResultSet rs;
+        double precio = 0;
+		conexion.SQL("Select * from funcion where codigo=?");
+		conexion.preparedStatement().setInt(1, codigo);
+		rs = conexion.resultSet();
+		while (rs.next()){
+			precio = rs.getDouble("precioUnidad");
+		}
+		return precio;
+				
+	}
 
 }

@@ -29,14 +29,14 @@ public class VentaView
 		int codigoBancario;
 		int codigoCliente;
 		int NIT;
-		int codigoDetalleVenta;
+		
 
 		codigoBancario = ReadTypes.leerEntero(scanner, "Ingrese el Codigo bancario: ");
 		codigoCliente = ReadTypes.leerEntero(scanner, "Ingrese el codigo cliente: ");
 		NIT = ReadTypes.leerEntero(scanner, "Ingrese el NIT: ");
-		codigoDetalleVenta = ReadTypes.leerEntero(scanner, "Ingrese el codigo DetalleVenta: ");
 		
-		venta = new Venta(codigoBancario,codigoCliente,NIT,codigoDetalleVenta);
+		
+		venta = new Venta(codigoBancario,codigoCliente,NIT);
 
 		try {
 			ventaCtrl.Insertar(venta);

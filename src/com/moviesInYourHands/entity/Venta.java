@@ -7,9 +7,7 @@ public class Venta
 	private int codigoBancario;
 	private int codigoCliente;
 	private int NIT;
-	public Venta(int codigo, int codigoBancario, int codigocliente, int NIT) {
-		
-		this.codigo = codigo;
+	public Venta(int codigoBancario, int codigoCliente, int NIT) {
 		this.codigoBancario = codigoBancario;
 		this.codigoCliente = codigoCliente;
 		this.NIT=NIT;

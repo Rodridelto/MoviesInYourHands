@@ -24,15 +24,15 @@ public class DetalleVentaView
 
 	}
 
-	public void insertar() 
+	public void insertar(int cantidad,int codigoFuncion,double total) 
 	{
-		int cantidad;
+		/*int cantidad;
 		int codigoFuncion;
 
 		cantidad = ReadTypes.leerEntero(scanner, "Ingrese la cantidad de entradas: ");
 		codigoFuncion = ReadTypes.leerEntero(scanner, "Ingrese el codigo de la funcion: ");
-
-		detalleVenta = new DetalleVenta(cantidad,codigoFuncion);
+*/
+		detalleVenta = new DetalleVenta(cantidad,codigoFuncion,total);
 
 		try {
 			detalleVentaCtrl.Insertar(detalleVenta);

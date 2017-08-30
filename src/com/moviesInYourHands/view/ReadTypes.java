@@ -24,6 +24,7 @@ public class ReadTypes
 		}
 	}
 
+	
 	public static java.sql.Date cASqlDate (java.util.Date uDate) {
 		return new java.sql.Date(uDate.getTime());
         

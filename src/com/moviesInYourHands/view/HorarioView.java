@@ -21,7 +21,7 @@ public class HorarioView
 		horarioCtrl = new HorarioCtrl(conexion);
 		
 	}
-	public void insertar() 
+	/*public void insertar() 
 	{
 		Time horaInicio;
 		Time horaFin;
@@ -38,7 +38,7 @@ public class HorarioView
 		{
 			System.out.println(e.getMessage());
 		}
-	}
+	}*/
 	public void listar() {
 		ArrayList<Horario> horarios;
 

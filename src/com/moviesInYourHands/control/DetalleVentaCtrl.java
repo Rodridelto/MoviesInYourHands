@@ -19,10 +19,13 @@ Conexion conexion;
 	
 	public void Insertar(DetalleVenta detalleVenta) throws Throwable 
 	{
-		
-		conexion.SQL("Insert into detalleVenta( cantidad,codigoFuncion) VALUES(?,?)");
+		VentaCtrl ventaCtrl = new VentaCtrl(conexion);
+		int codigoVenta = ventaCtrl.getLastCodigo();
+		conexion.SQL("Insert into detalleVenta( cantidad,codigoFuncion,total,codigoVenta) VALUES(?,?,?,?)");
 		conexion.preparedStatement().setInt(1, detalleVenta.getCantidad());
 		conexion.preparedStatement().setInt(2, detalleVenta.getCodigoFuncion());
+		conexion.preparedStatement().setDouble(3, detalleVenta.getTotal());
+		conexion.preparedStatement().setInt(4, codigoVenta);
 		conexion.CUD();
 		
 	}
@@ -33,6 +36,8 @@ Conexion conexion;
 		int codigo;
 		int cantidad;
 		int codigoFuncion;
+		int codigoVenta;
+		double total;
 		
 
 		conexion.SQL("Select * from detalleVenta");
@@ -43,11 +48,10 @@ Conexion conexion;
 			codigo= rs.getInt("codigo");
 			cantidad= rs.getInt("cantidad");
 			codigoFuncion= rs.getInt("codigoFuncion");
-			
-			
-			detalleVentas.add(new DetalleVenta(codigo,cantidad,codigoFuncion));
+			total=rs.getDouble("total");
+			codigoVenta=rs.getInt("codigoVenta");			
+			detalleVentas.add(new DetalleVenta(codigo,cantidad,codigoFuncion,codigoVenta,total));
 		}
-
 		return detalleVentas;
 
 	}

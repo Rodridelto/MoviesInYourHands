@@ -9,6 +9,7 @@ public class Funcion
 	private int codigoCine;
 	private int codigoPelicula;
 	private String nombreFuncion;
+	private double precioUnidad;
 	private String promocion;
 	private String horario;
 	private String temporada;
@@ -17,7 +18,7 @@ public class Funcion
 	
 	
 	public Funcion(int codigo, int codigoPromocion, int codigoHorario, int codigoTemporada, int codigoCine,
-			int codigoPelicula, String nombreFuncion) 
+			int codigoPelicula, String nombreFuncion,double precioUnidad) 
 	{
 		this.codigo = codigo;
 		this.codigoPromocion = codigoPromocion;
@@ -26,7 +27,17 @@ public class Funcion
 		this.codigoCine = codigoCine;
 		this.codigoPelicula = codigoPelicula;
 		this.nombreFuncion = nombreFuncion;
+		this.precioUnidad=precioUnidad;
 	}
+	
+	public double getPrecioUnidad() {
+		return precioUnidad;
+	}
+
+	public void setPrecioUnidad(double precioUnidad) {
+		this.precioUnidad = precioUnidad;
+	}
+
 	public int getCodigo() {
 		return codigo;
 	}
@@ -105,7 +116,9 @@ public class Funcion
 
 	public String toString()
 	{
-		return " Funcion = [codigo= " + codigo +", codigo promocion= "+ codigoPromocion + " promocion:"+promocion+ ", codigo horario= "+codigoHorario+" horario:"+ horario + " codigo temporada= "+ codigoTemporada + " temporada:"+ temporada +  ", codigo cine= "+codigoCine +" cine:"+ cine +  " codigo pelicula= " +codigoPelicula+ " pelicula: "+ pelicula + ", nombre funcion= "+ nombreFuncion +  "]";
+		//aumentar genero
+		//return " Funcion = [codigo= " + codigo +", codigo promocion= "+ codigoPromocion + " promocion:"+promocion+ ", codigo horario= "+codigoHorario+" horario:"+ horario + " codigo temporada= "+ codigoTemporada + " temporada:"+ temporada +  ", codigo cine= "+codigoCine +" cine:"+ cine +  " codigo pelicula= " +codigoPelicula+ " pelicula: "+ pelicula + ", nombre funcion= "+ nombreFuncion +  "]";
+		return "Codigo: " + codigo + " Pelicula: "+ pelicula + " Horario: " + horario + " Precio: " + precioUnidad  ;
 	}
 	
 }

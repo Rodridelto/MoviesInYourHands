@@ -45,7 +45,7 @@ Conexion conexion;
 			codigoCliente= rs.getInt("codigoCliente");
 			NIT= rs.getInt("NIT");
 			
-			ventas.add(new Venta(codigo,codigoCliente, NIT, codigoBancario));
+			ventas.add(new Venta(codigoBancario,codigoCliente, NIT));
 		}
 
 		return ventas;
@@ -89,6 +89,20 @@ Conexion conexion;
 			conexion.CUD();
 		}
 	}*/
+	public int getLastCodigo() throws Throwable
+	{
+		ResultSet rs;
+		int codigo=0;
+		
 
+		conexion.SQL("Select * from Venta order by codigo DESC limit 1");
+
+		rs = conexion.resultSet();
+
+		while (rs.next()) {
+			codigo = rs.getInt("codigo");
+	}
+		return codigo;
+	}
 
 }

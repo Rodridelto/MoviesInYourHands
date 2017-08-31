@@ -14,17 +14,19 @@ public class MenusFuncion
 		Conexion conexion = new Conexion();
 		while (true) {
 			try {
-				System.out.println("********** RB CINEMAS **********");
-				System.out.println("-------------------------------------------------- ");
+				System.out.println("☻*☻*☻*☻*☻*☻*☻*☻*☻*☻* RB CINEMAS *☻*☻*☻*☻*☻*☻*☻*☻*☻*☻");
+				System.out.println("---------------------------------------------------------------------------------------------- ");
 				FuncionView funcionView= new FuncionView(conexion,scanner);
 				funcionView.listar();
-				System.out.println("-------------------------------------------------- ");
-				System.out.println("Ingrese el codigo de la funcion a la que desea ingresar:");
-				System.out.println("0. Salir");
-				System.out.println();
+				System.out.println("-----------------------------------------------------------------------------------------------");
+				System.out.println("* Ingrese el codigo de la funcion a la que desea ingresar" + "      *");
+				//System.out.println("*  0. Salir                                                    *");
+				System.out.println("****************************************************************");
 
 				opcion = scanner.nextInt();
 				scanner.nextLine();
+				
+				//System.out.println("=====>");
 
 				if (opcion >= 0 && opcion <= 4) {
 					return opcion;
@@ -55,5 +57,7 @@ public class MenusFuncion
 		return 0;
 		
 	}
+	
+	
 
 }

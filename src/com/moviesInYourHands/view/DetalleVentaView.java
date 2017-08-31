@@ -55,6 +55,10 @@ public class DetalleVentaView
 		}
 	}
 
+	public void mostrarFactura(int codigoFuncion)
+	{
+		detalleVentaCtrl.mostrarFactura(codigoFuncion);
+	}
 	/*public void buscar(String titulo) {
 		pelicula=new Pelicula(titulo);
 		try {

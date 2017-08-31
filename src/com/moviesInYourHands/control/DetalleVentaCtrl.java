@@ -56,6 +56,11 @@ Conexion conexion;
 
 	}
 	
+	public void mostrarFactura(int codigoFuncion)
+	{
+		//sql
+		//imprimir
+	}
 	/*public void search(Pelicula pelicula) throws Throwable {
 
 		ResultSet rs;

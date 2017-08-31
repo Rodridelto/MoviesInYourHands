@@ -1,6 +1,7 @@
 package com.moviesInYourHands.control;
 
 import java.sql.ResultSet;
+import java.sql.Time;
 import java.util.ArrayList;
 
 import com.moviesInYourHands.entity.Funcion;
@@ -129,5 +130,53 @@ Conexion conexion;
 		return precio;
 				
 	}
+	
+	public void listarTicket(int codigo)
+	{
+		ResultSet rs;
+        String titulo = null;
+        boolean subtitulos = false;
+        String genero = null;
+        int numeroSala = 0;
+        Time horaInicio = null;
+        Time horaFin;
+         
+		try {
+			conexion.SQL("SELECT titulo, subtitulos,genero,sala.numeroSala,horario.horaInicio,horario.horaFin "+
+  "from pelicula INNER JOIN funcion ON funcion.codigoPelicula=pelicula.codigo "+
+  "INNER JOIN cine ON funcion.codigoCine= cine.codigo "+
+ " INNER JOIN sala ON cine.codigo=sala.codigoCine "+
+ "INNER JOIN horario ON funcion.codigoHorario=horario.codigo "+
+  "where funcion.codigo=?");
+			conexion.preparedStatement().setInt(1, codigo);
+			rs = conexion.resultSet();
+			while (rs.next()){
+				titulo = rs.getString("titulo");
+				subtitulos=rs.getBoolean("subtitulos");
+				genero=rs.getString("genero");
+				numeroSala=rs.getInt("numeroSala");
+				horaInicio=rs.getTime("horaInicio");
+				horaFin=rs.getTime("horaFin");
+				//System.out.println(nombre + "nombre");
+			}
+			System.out.println("********** TICKET DE INGRESO **********");
+			System.out.println("*Titulo => "+ titulo +"  *");
+			if(subtitulos = true)
+				System.out.println("*Subtitulada"+ "                          *");
+			else
+				System.out.println("*Doblada" + "                    *");
+			System.out.println("*Genero => "+ genero + "         *");
+			System.out.println("*Numero de sala => "+ numeroSala + "                  *");
+			System.out.println("*Hora inicio => "+ horaInicio + "              *");
+			System.out.println("***************************************");
+
+
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		}
 
 }

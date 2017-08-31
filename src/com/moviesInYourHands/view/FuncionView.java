@@ -105,5 +105,12 @@ public class FuncionView
 		}
 		return 0;
 	}
+	
+	public void mostrarTicket(int codigoFuncion)
+	{
+	funcionCtrl.listarTicket(codigoFuncion);
+		
+         	
+	}
 
 }

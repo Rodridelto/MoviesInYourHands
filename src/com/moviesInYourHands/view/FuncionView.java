@@ -1,5 +1,6 @@
 package com.moviesInYourHands.view;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -108,8 +109,21 @@ public class FuncionView
 	
 	public void mostrarTicket(int codigoFuncion)
 	{
-	funcionCtrl.listarTicket(codigoFuncion);
-		
+	 Ticket ticket = funcionCtrl.listarTicket(codigoFuncion);
+	
+	
+	System.out.println("********** TICKET DE INGRESO **********");
+	System.out.println("*Titulo => "+ ticket.getTitulo() +"  *");
+	if(ticket.getSubtitulos())
+		System.out.println("*Subtitulada"+ "                          *");
+	else
+		System.out.println("*Doblada" + "                    *");
+	System.out.println("*Genero => "+ ticket.getGenero() + "         *");
+	System.out.println("*Numero de sala => "+ ticket.getNumeroSala() + "                  *");
+	System.out.println("*Hora inicio => "+ ticket.getHoraInicio() + "              *");
+	System.out.println("***************************************");
+
+
          	
 	}
 

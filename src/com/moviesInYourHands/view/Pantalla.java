@@ -17,7 +17,11 @@ public class Pantalla {
 		int cantidadEntradas= MenusFuncion.menuEntradas(scanner);
 		//System.out.println("el codigo ingresado es: " +codigofuncion);
 		//System.out.println("la cantidad ingresada es: " +cantidadEntradas);
+		ClienteView clienteView = new ClienteView(conexion, scanner);
+		clienteView.insertar();
+		
 		VentaView ventaView = new VentaView(conexion,scanner);
+		ventaView.insertar();
 		
 		DetalleVentaView detalleVentaView= new DetalleVentaView(conexion,scanner);
 		FuncionView  funcionView = new FuncionView(conexion, scanner);
@@ -27,7 +31,7 @@ public class Pantalla {
 		
 		detalleVentaView.insertar(cantidadEntradas, codigofuncion, total);
 		funcionView.mostrarTicket(codigofuncion);
-		//detalleVentaView.mostrarFactura(codigofuncion);
+		detalleVentaView.mostrarFactura(codigofuncion);
 		
 		
 		//PeliculaView peliculaView = new PeliculaView(conexion,scanner);

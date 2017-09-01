@@ -25,15 +25,15 @@ public class ClienteView
 
 	public void insertar() 
 	{
-		int NIT;
+		
 		int CI;
 		String nombre;
 
-		NIT = ReadTypes.leerEntero(scanner, "Ingrese el NIT: ");
+		//NIT = ReadTypes.leerEntero(scanner, "Ingrese el NIT: ");
 		CI = ReadTypes.leerEntero(scanner, "Ingrese el CI: ");
 		nombre = ReadTypes.leerCadena(scanner, "Ingrese el nombre: ");
 		
-		cliente = new Cliente(NIT,CI,nombre);
+		cliente = new Cliente(CI,nombre);
 
 		try {
 			clienteCtrl.Insertar(cliente);

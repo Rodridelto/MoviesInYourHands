@@ -28,7 +28,7 @@ public class MenusFuncion
 				
 				//System.out.println("=====>");
 
-				if (opcion >= 0 && opcion <= 4) {
+				if (opcion >= 0 && opcion <= 6) {
 					return opcion;
 				}
 

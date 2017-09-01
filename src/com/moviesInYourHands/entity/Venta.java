@@ -12,6 +12,11 @@ public class Venta
 		this.codigoCliente = codigoCliente;
 		this.NIT=NIT;
 	}
+	
+	public Venta(int codigoBancario, int NIT) {
+		this.codigoBancario = codigoBancario;
+		this.NIT=NIT;
+	}
 	public int getCodigo() {
 		return codigo;
 	}

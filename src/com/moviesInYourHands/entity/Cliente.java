@@ -3,21 +3,18 @@ package com.moviesInYourHands.entity;
 public class Cliente 
 {
 	private int codigo;
-	private int NIT;
 	private int CI;
 	private String nombre;
-	public Cliente(int codigo, int nIT, int cI, String nombre) {
+	public Cliente(int codigo, int cI, String nombre) {
 		
 		this.codigo = codigo;
-		NIT = nIT;
 		CI = cI;
 		this.nombre = nombre;
 	}
 	
 	
 	
-	public Cliente(int nIT, int cI, String nombre) {
-		NIT = nIT;
+	public Cliente( int cI, String nombre) {
 		CI = cI;
 		this.nombre = nombre;
 	}
@@ -29,12 +26,6 @@ public class Cliente
 	}
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
-	}
-	public int getNIT() {
-		return NIT;
-	}
-	public void setNIT(int nIT) {
-		NIT = nIT;
 	}
 	public int getCI() {
 		return CI;
@@ -53,7 +44,7 @@ public class Cliente
 
 	public String toString()
 	{
-		return " Cliente = [codigo= " + codigo +", NIT= "+ NIT + ", CI= "+ CI + ", nombre= "+ nombre + "]";
+		return " Cliente = [codigo= " + codigo + ", CI= "+ CI + ", nombre= "+ nombre + "]";
 	}
 
 

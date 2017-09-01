@@ -17,9 +17,10 @@ Conexion conexion;
 	
 	public void Insertar(Venta venta) throws Throwable 
 	{
-		
+		ClienteCtrl clienteCtrl = new ClienteCtrl(conexion);
+		int codigoCliente = clienteCtrl.getUltimoClienteIngresado();
 		conexion.SQL("Insert into venta(codigoCliente, NIT, codigoBancario) VALUES(?,?,?)");
-		conexion.preparedStatement().setInt(1, venta.getCodigoCliente());
+		conexion.preparedStatement().setInt(1, codigoCliente);
 		conexion.preparedStatement().setInt(2, venta.getNIT());
 		conexion.preparedStatement().setInt(3, venta.getCodigoBancario());
 		conexion.CUD();

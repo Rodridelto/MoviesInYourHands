@@ -20,10 +20,10 @@ Conexion conexion;
 	public void Insertar(Cliente cliente) throws Throwable 
 	{
 		
-		conexion.SQL("Insert into cliente( NIT,CI,nombre) VALUES(?,?,?)");
-		conexion.preparedStatement().setInt(1, cliente.getNIT());
-		conexion.preparedStatement().setInt(2, cliente.getCI());
-		conexion.preparedStatement().setString(3, cliente.getNombre());
+		conexion.SQL("Insert into cliente( CI,nombre) VALUES(?,?)");
+		
+		conexion.preparedStatement().setInt(1, cliente.getCI());
+		conexion.preparedStatement().setString(2, cliente.getNombre());
 		
 		conexion.CUD();
 		
@@ -44,15 +44,30 @@ Conexion conexion;
 
 		while (rs.next()) {
 			codigo= rs.getInt("codigo");
-			NIT= rs.getInt("NIT");
 			CI= rs.getInt("CI");
 			nombre= rs.getString("nombre");
 		
 			
-			clientes.add(new Cliente(codigo,NIT,CI,nombre));
+			clientes.add(new Cliente(codigo,CI,nombre));
 		}
 
 		return clientes;
+
+	}
+
+	public int getUltimoClienteIngresado() throws Throwable {
+		ResultSet rs;
+		int codigo=0;
+		
+
+		conexion.SQL("Select * from Cliente order by codigo DESC limit 1");
+
+		rs = conexion.resultSet();
+
+		while (rs.next()) {
+			codigo = rs.getInt("codigo");
+	}
+		return codigo;
 
 	}
 	

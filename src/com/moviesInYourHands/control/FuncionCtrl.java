@@ -2,9 +2,12 @@ package com.moviesInYourHands.control;
 
 import java.sql.ResultSet;
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.moviesInYourHands.entity.Funcion;
+import com.moviesInYourHands.view.Ticket;
 
 public class FuncionCtrl
 {
@@ -47,8 +50,15 @@ Conexion conexion;
 		 String temporada;
 		 String nombreFuncion;
 		
-
-		conexion.SQL("Select * from funcion");
+		Date fecha= new Date();
+		java.sql.Date today = new java.sql.Date(fecha.getTime());
+			
+			 conexion.SQL("select * from funcion inner join temporada on temporada.codigo=funcion.codigoTemporada "+
+					 "where temporada.fechaInicio <= ? and temporada.fechaFin >= ?");
+		 
+		 conexion.preparedStatement().setDate(1, today);
+		 conexion.preparedStatement().setDate(2, today);
+		//conexion.SQL("Select * from funcion");
 
 		rs = conexion.resultSet();
 
@@ -131,7 +141,7 @@ Conexion conexion;
 				
 	}
 	
-	public void listarTicket(int codigo)
+	public Ticket listarTicket(int codigo)
 	{
 		ResultSet rs;
         String titulo = null;
@@ -139,7 +149,7 @@ Conexion conexion;
         String genero = null;
         int numeroSala = 0;
         Time horaInicio = null;
-        Time horaFin;
+        Ticket ticket= new Ticket();
          
 		try {
 			conexion.SQL("SELECT titulo, subtitulos,genero,sala.numeroSala,horario.horaInicio,horario.horaFin "+
@@ -156,25 +166,20 @@ Conexion conexion;
 				genero=rs.getString("genero");
 				numeroSala=rs.getInt("numeroSala");
 				horaInicio=rs.getTime("horaInicio");
-				horaFin=rs.getTime("horaFin");
+				
 				//System.out.println(nombre + "nombre");
 			}
-			System.out.println("********** TICKET DE INGRESO **********");
-			System.out.println("*Titulo => "+ titulo +"  *");
-			if(subtitulos = true)
-				System.out.println("*Subtitulada"+ "                          *");
-			else
-				System.out.println("*Doblada" + "                    *");
-			System.out.println("*Genero => "+ genero + "         *");
-			System.out.println("*Numero de sala => "+ numeroSala + "                  *");
-			System.out.println("*Hora inicio => "+ horaInicio + "              *");
-			System.out.println("***************************************");
-
+			ticket.setTitulo(titulo);
+			ticket.setSubtitulos(subtitulos);
+			ticket.setGenero(genero);
+			ticket.setNumeroSala(numeroSala);
+			ticket.setHoraInicio(horaInicio);
 
 		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return ticket;
 		
 		
 		}

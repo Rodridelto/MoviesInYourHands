@@ -1,6 +1,8 @@
 package com.moviesInYourHands.view;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 import com.moviesInYourHands.control.Conexion;
@@ -57,7 +59,30 @@ public class DetalleVentaView
 
 	public void mostrarFactura(int codigoFuncion)
 	{
-		detalleVentaCtrl.mostrarFactura(codigoFuncion);
+		Date fecha;
+		String fechaDia;
+		fecha= new Date();
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		fechaDia = simpleDateFormat.format(fecha);
+
+		Factura  factura = detalleVentaCtrl.getFactura(codigoFuncion);
+		System.out.println();
+		System.out.println();
+		System.out.println("************** "+ factura.getNombreCine() +"**************");
+		System.out.println("*          "+ factura.getDireccion() +"        *");
+		System.out.println("*************** FACTURA ***************");
+		System.out.println("* N° de Factura:  "+ factura.getCodigoDetalleVenta()+"                  *");
+		System.out.println("*-------------------------------------*");
+		System.out.println("* Fecha:  "+ fechaDia + "            *");
+		System.out.println("* Cliente: "+ factura.getNombreCliente() + "      *");
+		System.out.println("* NIT: "+ factura.getNit() + "                        *");
+		System.out.println("***************************************");
+		System.out.println("* Cantidad "+ " Precio Unitario " + "   Total  *");
+		System.out.println("*   "+ factura.getCantidad() + "         " + factura.getPrecioUnidad() +"              " + factura.getPrecioTotal() +"  *");
+		System.out.println("*   *** Gracias por su compra =)***   *");
+		System.out.println("***************************************");
+
+		
 	}
 	/*public void buscar(String titulo) {
 		pelicula=new Pelicula(titulo);

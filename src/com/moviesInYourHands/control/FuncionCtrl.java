@@ -58,7 +58,7 @@ Conexion conexion;
 		 
 		 conexion.preparedStatement().setDate(1, today);
 		 conexion.preparedStatement().setDate(2, today);
-		//conexion.SQL("Select * from funcion");
+		
 
 		rs = conexion.resultSet();
 
@@ -167,7 +167,7 @@ Conexion conexion;
 				numeroSala=rs.getInt("numeroSala");
 				horaInicio=rs.getTime("horaInicio");
 				
-				//System.out.println(nombre + "nombre");
+			
 			}
 			ticket.setTitulo(titulo);
 			ticket.setSubtitulos(subtitulos);
@@ -176,7 +176,6 @@ Conexion conexion;
 			ticket.setHoraInicio(horaInicio);
 
 		} catch (Throwable e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return ticket;

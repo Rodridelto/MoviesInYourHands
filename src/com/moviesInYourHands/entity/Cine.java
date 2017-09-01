@@ -7,17 +7,17 @@ public class Cine
 	private String direccion;
 	private int telefono;
 	public Cine(int codigo,String nombre, String direccion, int telefono) {
-		
+
 		this.codigo=codigo;
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
 	}
-	
-	
+
+
 
 	public Cine(String nombre, String direccion, int telefono) {
-		
+
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
@@ -49,7 +49,7 @@ public class Cine
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
-	
+
 	@Override
 
 	public String toString()

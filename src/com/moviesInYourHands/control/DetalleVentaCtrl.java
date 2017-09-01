@@ -104,48 +104,10 @@ public class DetalleVentaCtrl
 			return factura;
 			
 		} catch (Throwable e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return factura;
 	}
 }
-/*public void search(Pelicula pelicula) throws Throwable {
-
-		ResultSet rs;
-
-		conexion.SQL("Select * from pelicula where titulo=?");
-		conexion.preparedStatement().setString(1, pelicula.getTitulo());
-		rs = conexion.resultSet();
-
-		while (rs.next()) {
-
-			pelicula.setCodigo(rs.getInt("codigo"));
-			pelicula.setIdioma(rs.getString("idioma"));
-			pelicula.setSubtitulos(rs.getBoolean("subtitulos"));
-			pelicula.setDuracion(rs.getInt("duracion"));
-			pelicula.setResumen(rs.getString("resumen"));
-
-		}
-
-		rs.close();
-
-	}
-
-	public void update(Pelicula pelicula) throws Throwable {
-
-		int codigo;
-		int duracion;
-
-		if (pelicula != null) {
-			codigo = pelicula.getCodigo();
-			duracion = pelicula.getDuracion();
-
-			conexion.SQL("Update pelicula set codigo = ? where duracion=?");
-			conexion.preparedStatement().setInt(1, codigo);
-			conexion.preparedStatement().setInt(2, duracion);
-			conexion.CUD();
-		}
-	}*/
 
 

@@ -6,14 +6,14 @@ public class Cliente
 	private int CI;
 	private String nombre;
 	public Cliente(int codigo, int cI, String nombre) {
-		
+
 		this.codigo = codigo;
 		CI = cI;
 		this.nombre = nombre;
 	}
-	
-	
-	
+
+
+
 	public Cliente( int cI, String nombre) {
 		CI = cI;
 		this.nombre = nombre;
@@ -39,7 +39,7 @@ public class Cliente
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
+
 	@Override
 
 	public String toString()

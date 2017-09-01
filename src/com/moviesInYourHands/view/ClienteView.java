@@ -29,7 +29,6 @@ public class ClienteView
 		int CI;
 		String nombre;
 
-		//NIT = ReadTypes.leerEntero(scanner, "Ingrese el NIT: ");
 		CI = ReadTypes.leerEntero(scanner, "Ingrese el CI: ");
 		nombre = ReadTypes.leerCadena(scanner, "Ingrese el nombre: ");
 		
@@ -55,37 +54,4 @@ public class ClienteView
 			System.out.println(e.getMessage());
 		}
 	}
-
-	/*public void buscar(String titulo) {
-		pelicula=new Pelicula(titulo);
-		try {
-			peliculaCtrl.search(pelicula);
-			System.out.println(pelicula);
-		} catch (Throwable e) {
-			System.out.println(e.getMessage());
-		}
-	}
-
-	public void actualizar() {
-		int codigo;
-
-		codigo = ReadTypes.leerEntero(scanner, "Ingrese los minutos de duracion a modificar: ");
-		pelicula=new Pelicula(codigo);
-		
-		try {
-			peliculaCtrl.search(pelicula);
-		} 
-		catch (Throwable e1) {
-			System.out.println(e1.getMessage());
-		}
-
-		//MenusPelicula.menuModificar(scanner, pelicula);
-
-		try {
-			peliculaCtrl.update(pelicula);
-		} catch (Throwable e) {
-			System.out.println(e.getMessage());
-		}
-	}*/
-
 }

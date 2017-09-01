@@ -15,8 +15,6 @@ public class Pantalla {
 		Conexion conexion = new Conexion();	
 		int codigofuncion = MenusFuncion.menu(scanner);
 		int cantidadEntradas= MenusFuncion.menuEntradas(scanner);
-		//System.out.println("el codigo ingresado es: " +codigofuncion);
-		//System.out.println("la cantidad ingresada es: " +cantidadEntradas);
 		ClienteView clienteView = new ClienteView(conexion, scanner);
 		clienteView.insertar();
 		
@@ -32,14 +30,6 @@ public class Pantalla {
 		detalleVentaView.insertar(cantidadEntradas, codigofuncion, total);
 		funcionView.mostrarTicket(codigofuncion);
 		detalleVentaView.mostrarFactura(codigofuncion);
-		
-		
-		//PeliculaView peliculaView = new PeliculaView(conexion,scanner);
-		//peliculaView.insertar();
-		//peliculaView.listar();
-		//FuncionView funcionView = new FuncionView(conexion,scanner);
-		//funcionView.listar();
-		//1ventaView.insertar();
 		
 		try 
 		{

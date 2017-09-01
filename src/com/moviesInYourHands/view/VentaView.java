@@ -30,7 +30,6 @@ public class VentaView
 		int codigoCliente;
 		int NIT;
 		
-		//codigoCliente = ReadTypes.leerEntero(scanner, "Ingrese el codigo cliente: ");
 		codigoBancario = ReadTypes.leerEntero(scanner, "Ingrese el Codigo bancario: ");
 		NIT = ReadTypes.leerEntero(scanner, "Ingrese el NIT: ");
 		
@@ -58,37 +57,4 @@ public class VentaView
 		}
 
 	}
-	
-	/*public void buscar(String titulo) {
-		pelicula=new Pelicula(titulo);
-		try {
-			peliculaCtrl.search(pelicula);
-			System.out.println(pelicula);
-		} catch (Throwable e) {
-			System.out.println(e.getMessage());
-		}
-	}
-
-	public void actualizar() {
-		int codigo;
-
-		codigo = ReadTypes.leerEntero(scanner, "Ingrese los minutos de duracion a modificar: ");
-		pelicula=new Pelicula(codigo);
-
-		try {
-			peliculaCtrl.search(pelicula);
-		} 
-		catch (Throwable e1) {
-			System.out.println(e1.getMessage());
-		}
-
-		//MenusPelicula.menuModificar(scanner, pelicula);
-
-		try {
-			peliculaCtrl.update(pelicula);
-		} catch (Throwable e) {
-			System.out.println(e.getMessage());
-		}
-	}*/
-
 }

@@ -116,8 +116,6 @@ public class Funcion
 
 	public String toString()
 	{
-		//aumentar genero
-		//return " Funcion = [codigo= " + codigo +", codigo promocion= "+ codigoPromocion + " promocion:"+promocion+ ", codigo horario= "+codigoHorario+" horario:"+ horario + " codigo temporada= "+ codigoTemporada + " temporada:"+ temporada +  ", codigo cine= "+codigoCine +" cine:"+ cine +  " codigo pelicula= " +codigoPelicula+ " pelicula: "+ pelicula + ", nombre funcion= "+ nombreFuncion +  "]";
 		return "Codigo: " + codigo + ", Pelicula: "+ pelicula + ", Horario: " + horario + ", Precio: " + precioUnidad  ;
 	}
 	

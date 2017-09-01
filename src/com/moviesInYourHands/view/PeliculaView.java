@@ -90,7 +90,6 @@ public class PeliculaView
 			System.out.println(e1.getMessage());
 		}
 
-		//MenusPelicula.menuModificar(scanner, pelicula);
 
 		try {
 			peliculaCtrl.update(pelicula);

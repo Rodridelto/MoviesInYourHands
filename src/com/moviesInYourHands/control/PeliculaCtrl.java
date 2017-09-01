@@ -110,7 +110,6 @@ public class PeliculaCtrl
 		rs = conexion.resultSet();
 		while (rs.next()){
 			nombre = rs.getString("titulo");
-			//System.out.println(nombre + "nombre");
 		}
 		return nombre;
 				

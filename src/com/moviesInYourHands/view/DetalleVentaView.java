@@ -28,12 +28,7 @@ public class DetalleVentaView
 
 	public void insertar(int cantidad,int codigoFuncion,double total) 
 	{
-		/*int cantidad;
-		int codigoFuncion;
-
-		cantidad = ReadTypes.leerEntero(scanner, "Ingrese la cantidad de entradas: ");
-		codigoFuncion = ReadTypes.leerEntero(scanner, "Ingrese el codigo de la funcion: ");
-*/
+	
 		detalleVenta = new DetalleVenta(cantidad,codigoFuncion,total);
 
 		try {
@@ -69,51 +64,19 @@ public class DetalleVentaView
 		System.out.println();
 		System.out.println();
 		System.out.println("************** "+ factura.getNombreCine() +"**************");
-		System.out.println("*          "+ factura.getDireccion() +"        *");
+		System.out.println("*          "+ factura.getDireccion() +"        ");
 		System.out.println("*************** FACTURA ***************");
-		System.out.println("* N° de Factura:  "+ factura.getCodigoDetalleVenta()+"                  *");
-		System.out.println("*-------------------------------------*");
-		System.out.println("* Fecha:  "+ fechaDia + "            *");
-		System.out.println("* Cliente: "+ factura.getNombreCliente() + "      *");
-		System.out.println("* NIT: "+ factura.getNit() + "                        *");
+		System.out.println("* N° de Factura:  "+ factura.getCodigoDetalleVenta()+"                  ");
+		System.out.println("*-------------------------------------");
+		System.out.println("* Fecha:  "+ fechaDia + "            ");
+		System.out.println("* Cliente: "+ factura.getNombreCliente() + "      ");
+		System.out.println("* NIT: "+ factura.getNit() + "                        ");
 		System.out.println("***************************************");
-		System.out.println("* Cantidad "+ " Precio Unitario " + "   Total  *");
-		System.out.println("*   "+ factura.getCantidad() + "         " + factura.getPrecioUnidad() +"              " + factura.getPrecioTotal() +"  *");
-		System.out.println("*   *** Gracias por su compra =)***   *");
+		System.out.println("* Cantidad "+ " Precio Unitario " + "   Total  ");
+		System.out.println("*   "+ factura.getCantidad() + "         " + factura.getPrecioUnidad() +"              " + factura.getPrecioTotal() +"  ");
+		System.out.println("*   *** Gracias por su compra =)***   ");
 		System.out.println("***************************************");
 
 		
 	}
-	/*public void buscar(String titulo) {
-		pelicula=new Pelicula(titulo);
-		try {
-			peliculaCtrl.search(pelicula);
-			System.out.println(pelicula);
-		} catch (Throwable e) {
-			System.out.println(e.getMessage());
-		}
-	}
-
-	public void actualizar() {
-		int codigo;
-
-		codigo = ReadTypes.leerEntero(scanner, "Ingrese los minutos de duracion a modificar: ");
-		pelicula=new Pelicula(codigo);
-		
-		try {
-			peliculaCtrl.search(pelicula);
-		} 
-		catch (Throwable e1) {
-			System.out.println(e1.getMessage());
-		}
-
-		//MenusPelicula.menuModificar(scanner, pelicula);
-
-		try {
-			peliculaCtrl.update(pelicula);
-		} catch (Throwable e) {
-			System.out.println(e.getMessage());
-		}
-	}*/
-
 }

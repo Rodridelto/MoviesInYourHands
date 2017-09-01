@@ -20,13 +20,11 @@ public class MenusFuncion
 				funcionView.listar();
 				System.out.println("-----------------------------------------------------------------------------------------------");
 				System.out.println("* Ingrese el codigo de la funcion a la que desea ingresar" + "      *");
-				//System.out.println("*  0. Salir                                                    *");
 				System.out.println("****************************************************************");
 
 				opcion = scanner.nextInt();
 				scanner.nextLine();
 				
-				//System.out.println("=====>");
 
 				if (opcion >= 0 && opcion <= 6) {
 					return opcion;
